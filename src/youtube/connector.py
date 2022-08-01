@@ -3,7 +3,7 @@ import requests
 from tqdm import tqdm
 
 
-class YTstats:
+class Connector:
 
     def __init__(self, api_key, channel_id):
         self.api_key = api_key
@@ -134,3 +134,11 @@ class YTstats:
             json.dump(fused_data, f, indent=4)
         
         print('file dumped to', filename)
+
+
+python_engineer_id = 'UCbXgNpp0jedKWcQiULLbDTA'
+channel_id = python_engineer_id
+
+yt = YTstats("AIzaSyAj1X_nV1jxA08FEhdL9gyGzLHv1VjtnL0", channel_id)
+yt.extract_all()
+yt.dump()  # dumps to .json
