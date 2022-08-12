@@ -1,23 +1,7 @@
-properties = [
-    "channel_id",
-    "channel_views",
-    "channel_suscribers",
-    "channel_videos",
-    "video_hash",
-    "publish_at",
-    "video_title",
-    "video_description",
-    "channel_title",
-    "video_tags",
-    "video_lang",
-    "video_views",
-    "video_likes",
-    "video_comments",
-    "video_duration"
-    ]
+import pandas as pd
+from config import config
 
-
-def channel_stats_from_json_to_df(json_file="/Users/elhqdjigagny/Desktop/astrotube/confluence/data/example.json"):
+def channel_stats_from_json_to_df(json_file):
     import json
     with open(json_file) as f:
         data =  json.load(f)
@@ -58,7 +42,7 @@ def channel_stats_from_json_to_df(json_file="/Users/elhqdjigagny/Desktop/astrotu
                     video_comments,
                     video_duration
                 )
-        
+            properties = config.get('properties')
             new_row = dict(zip(properties, properties_values))
             records.append(new_row)
 

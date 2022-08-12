@@ -1,0 +1,20 @@
+{
+    "properties": 
+    [
+        "channel_id",
+        "channel_views",
+        "channel_suscribers",
+        "channel_videos",
+        "video_hash",
+        "publish_at",
+        "video_title",
+        "video_description",
+        "channel_title",
+        "video_tags",
+        "video_lang",
+        "video_views",
+        "video_likes",
+        "video_comments",
+        "video_duration"
+    ]
+}

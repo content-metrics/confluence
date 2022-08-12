@@ -5,11 +5,12 @@ from tqdm import tqdm
 
 class Connector:
 
-    def __init__(self, api_key, channel_id):
+    def __init__(self, api_key, channel_id, file_name):
         self.api_key = api_key
         self.channel_id = channel_id
         self.channel_statistics = None
         self.video_data = None
+        self.file_name = file_name
 
     def extract_all(self):
         self.get_channel_statistics()
@@ -129,16 +130,9 @@ class Connector:
 
         channel_title = self.video_data.popitem()[1].get('channelTitle', self.channel_id)
         channel_title = channel_title.replace(" ", "_").lower()
-        filename = channel_title + '.json'
-        with open(filename, 'w') as f:
+        #filename = channel_title + '.json'
+        with open(self.file_name, 'w') as f:
             json.dump(fused_data, f, indent=4)
         
-        print('file dumped to', filename)
+        print('file dumped to', self.file_name)
 
-
-python_engineer_id = 'UCbXgNpp0jedKWcQiULLbDTA'
-channel_id = python_engineer_id
-
-yt = YTstats("AIzaSyAj1X_nV1jxA08FEhdL9gyGzLHv1VjtnL0", channel_id)
-yt.extract_all()
-yt.dump()  # dumps to .json
