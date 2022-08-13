@@ -1,0 +1,18 @@
+{
+    "properties":
+    [
+        "biography", 
+        "fullname",
+        "number_of_followers",
+        "number_of_followings",
+        "number_of_posts"
+    ], 
+
+    "post": 
+    [
+        "likes", 
+        "comments",
+        "is_video",
+        "post_time"
+    ]
+}
