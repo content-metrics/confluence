@@ -37,7 +37,8 @@ class Connector:
 
 
 
-        return number_of_posts
+        return number_of_posts 
+        
 """
 
 
