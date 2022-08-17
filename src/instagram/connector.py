@@ -45,11 +45,3 @@ class Connector:
         self.posts_statistics = data 
         return data        
 
-
-
-if __name__ == "__main__":
-    user_id = 'justinbieber'
-    instagram_connection = Connector(user_id)
-    print(instagram_connection.get_page_statistics())
-    print("**" * 10)
-    print(instagram_connection.get_posts_statistics())
