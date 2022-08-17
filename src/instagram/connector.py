@@ -1,4 +1,3 @@
-import json 
 from instagramy import InstagramUser
 from collections import defaultdict
 import datetime
