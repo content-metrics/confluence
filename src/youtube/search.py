@@ -25,10 +25,21 @@ def get_channel_id_from_video_id(video_id):
 
 
 def get_channels_ids_from_keywords(scope, video_limit=None):
+
+    """
+    args
+    ----
+    scope: str or list the query string 
+    video_limit: integer or None is the max number of videos you want to retry
+
+    return
+    ------
+    list
+    """
     if isinstance(scope, list):
         youtube_default_sep = "+"
         scope = youtube_default_sep.join(scope)
-    # video_limit is the max video you want to retry
+    
     video_ids = get_videos_ids_from_keywords(scope=scope)
     video_ids = video_ids[:video_limit]
     channels_ids = []
