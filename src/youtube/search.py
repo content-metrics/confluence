@@ -1,16 +1,25 @@
 import urllib.request
 import re
+import os 
+
+base_url = "https://www.youtube.com/"
 
 def get_videos_ids_from_keywords(scope):
-    html = urllib.request.urlopen(f"https://www.youtube.com/results?search_query={scope}")
+    context_url = f"results?search_query={scope}"
+    url = os.path.join(base_url, context_url)
+    html = urllib.request.urlopen(url)
     video_ids = re.findall(r"watch\?v=(\S{11})", html.read().decode())
     return video_ids
 
 
 def get_channel_id_from_video_id(video_id):
-    html = urllib.request.urlopen(f"https://www.youtube.com/watch?v={video_id}")
+    context_url = f"watch?v={video_id}"
+    url = os.path.join(base_url, context_url)
+    html = urllib.request.urlopen(url)
     channel_id = re.findall(r"<meta itemprop=\"channelId\" content=\"(.*?)\"", html.read().decode())
     return channel_id[0]
+
+
 
 
 def get_channels_ids_from_keywords(scope, video_limit=None):
