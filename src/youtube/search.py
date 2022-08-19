@@ -36,6 +36,3 @@ def get_channels_ids_from_keywords(scope, video_limit=None):
         channel_id = get_channel_id_from_video_id(video_id=video_id)
         channels_ids.append(channel_id)
     return channels_ids
-
-
-
