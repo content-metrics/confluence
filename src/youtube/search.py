@@ -25,7 +25,6 @@ def get_channel_id_from_video_id(video_id):
 
 
 def get_channels_ids_from_keywords(scope, video_limit=None):
-
     """
     args
     ----
