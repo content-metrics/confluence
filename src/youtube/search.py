@@ -6,17 +6,19 @@ base_url = "https://www.youtube.com/"
 
 def get_videos_ids_from_keywords(scope):
     context_url = f"results?search_query={scope}"
+    regex_pattern = r"watch\?v=(\S{11})"
     url = os.path.join(base_url, context_url)
     html = urllib.request.urlopen(url)
-    video_ids = re.findall(r"watch\?v=(\S{11})", html.read().decode())
+    video_ids = re.findall(regex_pattern, html.read().decode())
     return video_ids
 
 
 def get_channel_id_from_video_id(video_id):
     context_url = f"watch?v={video_id}"
+    regex_pattern = r"<meta itemprop=\"channelId\" content=\"(.*?)\""
     url = os.path.join(base_url, context_url)
     html = urllib.request.urlopen(url)
-    channel_id = re.findall(r"<meta itemprop=\"channelId\" content=\"(.*?)\"", html.read().decode())
+    channel_id = re.findall(regex_pattern, html.read().decode())
     return channel_id[0]
 
 
