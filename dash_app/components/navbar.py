@@ -9,11 +9,11 @@ def Navbar():
     layout = html.Div([
         dbc.NavbarSimple(
             children=[
-                dbc.NavItem(dbc.NavLink("Page 1", href="/page1")),
+                dbc.NavItem(dbc.NavLink("home", href="/home")),
                 dbc.NavItem(dbc.NavLink("Page 2", href="/page2")),
             ] ,
             brand="Confluence",
-            brand_href="/page1",
+            brand_href="/home",
             color="dark",
             dark=True,
         ), 
