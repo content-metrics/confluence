@@ -21,7 +21,7 @@ def channel_stats_from_json_to_df(json_file):
             video_tags = video_info.get("tags")
             video_lang = video_info.get("defaultAudioLanguage")
             video_views = video_info["viewCount"]
-            video_likes = video_info["likeCount"]
+            video_likes = video_info.get("likeCount", None)
             video_comments = video_info["commentCount"]
             video_duration = video_info["duration"]
 
